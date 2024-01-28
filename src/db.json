@@ -1,0 +1,48 @@
+{ 
+   "products":[   {
+        "id": "KS1405",
+        "sku": "KS1405",
+        "imageUrl": "/productsImages/ks1405.png",
+        "name": "Fermi Linerlock Black/Green",
+        "brand": "Glow Rhino",
+        "currentPrice": "35.00",
+        "originalPrice": "99.00",
+        "map": "MAP $99.00",
+        "status": "in-stock"
+      },
+      {
+        "id": "HBTYEMLIF3PS",
+        "sku": "HBTYEMLIF3PS",
+        "imageUrl": "/productsImages/hbtyemlif3ps.png",
+        "name": "125th Annv Dog Fixed Blade",
+        "brand": "Ka-Bar",
+        "currentPrice": "55.00",
+        "originalPrice": "99.00",
+        "map": "MAP $99.00",
+        "status": "in-stock"
+      },
+      {
+        "id": "GLR103",
+        "sku": "GLR103",
+        "imageUrl": "/productsImages/glr103.png",
+        "name": "Fermi Linerlock Black/Green",
+        "brand": "Glow Rhino",
+        "currentPrice": "35.00",
+        "originalPrice": "45.00",
+        "map": "MAP $55.00",
+        "status": "closeout"
+      },
+      {
+        "id": "GLR109",
+        "sku": "GLR109",
+        "imageUrl": "/productsImages/glr109.png",
+        "name": "Delta Lockback Juniper",
+        "brand": "Cudeman",
+        "currentPrice": "55.00",
+        "originalPrice": "79.00",
+        "map": "MAP $79.00",
+        "status": "sold-out"
+      }
+    ]
+  }
+  

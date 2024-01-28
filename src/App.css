@@ -1,0 +1,13 @@
+.ContainerCards{
+    background-color: #f1f5f8;
+    margin-left: 5%;
+margin-right: 5%;
+padding-right:3%;
+padding-left:3%;
+padding-bottom:3%;
+padding-top:2%;
+width:85%;
+border-top-right-radius: 15px;
+border-top-left-radius: 15px;
+overflow-x: hidden;
+}
