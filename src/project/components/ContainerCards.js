@@ -16,7 +16,7 @@ export function ContainerCards() {
         {
            "id": "KS1405",
            "sku": "KS1405",
-           "imageUrl": "/productsImages/ks1405.png",
+           "imageUrl": "./images/ks1405.jpg",
            "name": "Fermi Linerlock Black/Green",
            "brand": "Glow Rhino",
            "currentPrice": "35.00",
@@ -27,7 +27,7 @@ export function ContainerCards() {
          {
            "id": "HBTYEMLIF3PS",
            "sku": "HBTYEMLIF3PS",
-           "imageUrl": "/productsImages/hbtyemlif3ps.png",
+           "imageUrl": "../images/hbtyemlif3ps.jpg",
            "name": "125th Annv Dog Fixed Blade",
            "brand": "Ka-Bar",
            "currentPrice": "55.00",
@@ -38,7 +38,7 @@ export function ContainerCards() {
          {
            "id": "GLR103",
            "sku": "GLR103",
-           "imageUrl": "/productsImages/glr103.png",
+           "imageUrl": "../images/glr103.jpg",
            "name": "Fermi Linerlock Black/Green",
            "brand": "Glow Rhino",
            "currentPrice": "35.00",
@@ -49,7 +49,7 @@ export function ContainerCards() {
          {
            "id": "GLR109",
            "sku": "GLR109",
-           "imageUrl": "/productsImages/glr109.png",
+           "imageUrl": "../images/glr109.jpg",
            "name": "Delta Lockback Juniper",
            "brand": "Cudeman",
            "currentPrice": "55.00",
@@ -92,7 +92,7 @@ export function ContainerCards() {
  
   return (
     <div className="container">
-      <h1>{slides}</h1>
+      <h1>Featured products</h1>
 
       <Swiper
             modules={[ Pagination]}
