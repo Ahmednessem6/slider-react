@@ -1,101 +1,112 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
-import "./card.css"; // Import custom card styles
+import './card.css';
 import 'swiper/css';
 import { useState, useEffect } from 'react';
 import ProductCard from './card';
+import { Pagination } from 'swiper/modules';
+
+import 'swiper/css/pagination';
+
+// Import Swiper styles
 
 export function ContainerCards() {
-  const[products,setProducts]=useState(
-    [  
-     {
-    "id": "KS1405",
-    "sku": "KS1405",
-    "imageUrl": "images/ks1405.jpg",
-    "name": "Fermi Linerlock Black/Green",
-    "brand": "Glow Rhino",
-    "currentPrice": "35.00",
-    "originalPrice": "99.00",
-    "map": "MAP $99.00",
-    "status": "in-stock"
-  },
-  {
-    "id": "HBTYEMLIF3PS",
-    "sku": "HBTYEMLIF3PS",
-    "imageUrl": "images/hbtyemlif3ps.jpg",
-    "name": "125th Annv Dog Fixed Blade",
-    "brand": "Ka-Bar",
-    "currentPrice": "55.00",
-    "originalPrice": "99.00",
-    "map": "MAP $99.00",
-    "status": "in-stock"
-  },
-  {
-    "id": "GLR103",
-    "sku": "GLR103",
-    "imageUrl": "images/glr103.jpg",
-    "name": "Fermi Linerlock Black/Green",
-    "brand": "Glow Rhino",
-    "currentPrice": "35.00",
-    "originalPrice": "45.00",
-    "map": "MAP $55.00",
-    "status": "closeout"
-  },
-  {
-    "id": "GLR109",
-    "sku": "GLR109",
-    "imageUrl": "images/glr109.jpg",
-    "name": "Delta Lockback Juniper",
-    "brand": "Cudeman",
-    "currentPrice": "55.00",
-    "originalPrice": "79.00",
-    "map": "MAP $79.00",
-    "status": "sold-out"
-  }
-]
-)
-      
-  const [swiperOptions, setSwiperOptions] = useState({
-    spaceBetween: 50,
-    slidesPerView: 4, // default number of cards in larger screen
-  });
-
-  //handle number of slides per view in case of labtop ,tablet and mobile phone
-  useEffect(() => {
-    const handleResize = () => {
-      setSwiperOptions({
+  const [products, setProducts] = useState(
+    [
     
-        slidesPerView: window.innerWidth <= 768 ? 2 :
-                       window.innerWidth <= 1024 ? 3 : 4,
+        {
+           "id": "KS1405",
+           "sku": "KS1405",
+           "imageUrl": "/productsImages/ks1405.png",
+           "name": "Fermi Linerlock Black/Green",
+           "brand": "Glow Rhino",
+           "currentPrice": "35.00",
+           "originalPrice": "99.00",
+           "map": "MAP $99.00",
+           "status": "in-stock"
+         },
+         {
+           "id": "HBTYEMLIF3PS",
+           "sku": "HBTYEMLIF3PS",
+           "imageUrl": "/productsImages/hbtyemlif3ps.png",
+           "name": "125th Annv Dog Fixed Blade",
+           "brand": "Ka-Bar",
+           "currentPrice": "55.00",
+           "originalPrice": "99.00",
+           "map": "MAP $99.00",
+           "status": "in-stock"
+         },
+         {
+           "id": "GLR103",
+           "sku": "GLR103",
+           "imageUrl": "/productsImages/glr103.png",
+           "name": "Fermi Linerlock Black/Green",
+           "brand": "Glow Rhino",
+           "currentPrice": "35.00",
+           "originalPrice": "45.00",
+           "map": "MAP $55.00",
+           "status": "closeout"
+         },
+         {
+           "id": "GLR109",
+           "sku": "GLR109",
+           "imageUrl": "/productsImages/glr109.png",
+           "name": "Delta Lockback Juniper",
+           "brand": "Cudeman",
+           "currentPrice": "55.00",
+           "originalPrice": "79.00",
+           "map": "MAP $79.00",
+           "status": "sold-out"
+         }
+       ]
+     
+     
+  );
 
-      });
-    };
+  const[slides,setSlides]=useState(0)
+  const handleResize = () => {
+  
+  setSlides(
+      window.innerWidth <= 480 ? 1 :
+          window.innerWidth <= 768 ? 2 :
+            window.innerWidth <= 1024 ? 3 : 4,
+    
+    
+    )    
+       
+   
 
-    window.addEventListener('resize', handleResize); // Update on resize
+
+   
+  }
+  useEffect(
+    ()=>{  
+      setInterval(handleResize,100)
+      
+      console.log("f")
+
+    }
 
   
-  }, []); 
 
+  ,[])
+ 
   return (
-    <div className="container"> 
-    {/*Title */}
-      <h1>Featured products</h1>
+    <div className="container">
+      <h1>{slides}</h1>
 
       <Swiper
-        spaceBetween={swiperOptions.spaceBetween}
-        slidesPerView={swiperOptions.slidesPerView}
+            modules={[ Pagination]}
+
+        spaceBetween={50} // Consistent spacing
+        slidesPerView={slides}
         onSlideChange={() => console.log('slide change')}
+        pagination={{ clickable: true }}
+
+
         onSwiper={(swiper) => console.log(swiper)}
-
-        style={{display:"flex",flex:"1 0"}}
       >
-
-    {/* mapping function for products */}
-
-        {products.map((product,i) => (
-          <SwiperSlide key={product.id}            
-          >
-    {/* card component and passing parameters*/}
-
+        {products.map((product, i) => (
+          <SwiperSlide key={product.id}>
             <ProductCard
               sku={product.sku}
               name={product.name}
@@ -105,19 +116,11 @@ export function ContainerCards() {
               brand={product.brand}
               currentPrice={product.currentPrice}
               originalPrice={product.originalPrice}
-             style={{ flexBasis: i===products.length-1?"50%":"25%"}}
-              
-              
-              
+              className={i === products.length - 1 ? 'last-card' : ''} // Use CSS class
             />
           </SwiperSlide>
-          
-        
-
         ))}
-
       </Swiper>
     </div>
   );
 };
-
